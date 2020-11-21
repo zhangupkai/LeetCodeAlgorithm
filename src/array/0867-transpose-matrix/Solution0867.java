@@ -4,6 +4,7 @@
  * @Date 2020/11/21 15:43
  */
 // https://leetcode-cn.com/problems/transpose-matrix/
+// 求矩阵的转置
 public class Solution0867 {
     public int[][] transpose(int[][] A) {
         int row = A.length;
