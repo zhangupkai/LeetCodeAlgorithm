@@ -1,3 +1,4 @@
+package hot100;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import java.util.Map;
  * @Author Kai
  * @Date 2021/3/8 21:13
  */
-public class Solution0001 {
+public class Solution0001TwoSum {
     // 暴力
     public int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
