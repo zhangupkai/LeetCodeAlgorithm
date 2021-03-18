@@ -1,7 +1,7 @@
 package dataStruct;
 
 /**
- * @Description
+ * @Description 链表
  * @Author Kai
  * @Date 2021/3/9 20:29
  */
