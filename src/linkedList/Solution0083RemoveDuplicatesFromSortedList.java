@@ -4,7 +4,8 @@ import dataStruct.ListNode;
 
 /**
  * @Description
- * 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
+ * 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次
+ * https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
  * @Author Kai
  * @Date 2021/3/24 11:07
  */
