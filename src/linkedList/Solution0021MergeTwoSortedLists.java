@@ -1,4 +1,4 @@
-package linklist;
+package linkedList;
 
 import dataStruct.ListNode;
 

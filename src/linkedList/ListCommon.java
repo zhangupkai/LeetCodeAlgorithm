@@ -1,4 +1,4 @@
-package linklist;
+package linkedList;
 
 /**
  * @Description 链表反转
