@@ -12,22 +12,29 @@ package hot100;
  * @Date 2021/3/18 20:28
  */
 public class Solution0121BestTimeToBuyAndSellStock {
-    // 简化版dp，类比第53题
+    /**
+     * 简化版dp，类比第53题
+     */
     public int maxProfit(int[] prices) {
-        int ans = 0; // 最大利润
-        int pre = 0; // i-1天结束时的最大利润
+        // 最大利润
+        int ans = 0;
+        // i-1天结束时的最大利润
+        int pre = 0;
         for (int i = 1; i < prices.length; ++i) {
             // i天结束时与i-1天结束时的利润差值
             int diff = prices[i] - prices[i - 1];
             // i天的最大利润 = i-1天的最大利益 + 这两天的利润差
-            pre = Math.max(pre + diff, 0); // 利润大于0才保留
+            // 利润大于0才保留
+            pre = Math.max(pre + diff, 0);
             ans = Math.max(pre, ans);
         }
 
         return ans;
     }
 
-    // 股票类题目通用dp
+    /**
+     * 股票类题目通用dp
+     */
     public int maxProfitGeneral(int[] prices) {
         int len = prices.length;
         if (len <= 1) {
