@@ -39,12 +39,9 @@ public class Solution0138CopyListWithRandomPointer {
         if (node == null) {
             return null;
         }
-        if (visited.containsKey(node)) {
-            return this.visited.get(node);
-        }
-        else {
+        if (!visited.containsKey(node)) {
             this.visited.put(node, new Node(node.val));
-            return this.visited.get(node);
         }
+        return this.visited.get(node);
     }
 }
