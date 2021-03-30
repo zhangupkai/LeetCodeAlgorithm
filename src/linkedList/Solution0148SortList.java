@@ -79,4 +79,100 @@ public class Solution0148SortList {
 
         return dummyHead.next;
     }
+
+    /**
+     * 归并排序 自底向上
+     * @param head 头结点
+     * @return 排序完成后的头结点
+     */
+    public ListNode sortList1(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        int length = listLength(head);
+
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        // 3. 每次将链表拆分成若干个长度为subLen的子链表 , 并按照每两个子链表一组进行合并
+        for (int subLen = 1; subLen < length; subLen *= 2) {
+            ListNode pre = dummy;
+            // cur 记录拆分链表的位置
+            ListNode cur = dummy.next;
+
+            // 如果链表没有被拆完
+            while (cur != null) {
+                // 3.1 拆分subLen长度的链表1
+                ListNode head1 = cur;
+                for (int i = 1; i < subLen && cur != null && cur.next != null; ++i) {
+                    cur = cur.next;
+                }
+
+                // 3.2 拆分subLen长度的链表2
+                // 链表2的头 即 链表1尾部的下一个位置
+                ListNode head2 = cur.next;
+                // 断开第一个链表和第二个链表的链接
+                cur.next = null;
+                cur = head2;
+                for (int i = 1; i < subLen && cur != null && cur.next != null; ++i) {
+                    cur = cur.next;
+                }
+
+                // 3.3 再次断开 第二个链表最后的next的链接
+                ListNode next = null;
+                if (cur != null) {
+                    // next用于记录 拆分完两个链表的结束位置
+                    next = cur.next;
+                    cur.next = null;
+                }
+
+                // 3.4 合并两个subLen长度的有序链表
+                ListNode merged = mergeTwoSortedList(head1, head2);
+                pre.next = merged;
+
+                // 将prev移动到 subLen*2 的位置（合并后的最后一个节点）
+                while (pre.next != null) {
+                    pre = pre.next;
+                }
+                cur = next;
+            }
+        }
+
+        return dummy.next;
+    }
+
+    /**
+     * 合并有序链表
+     * @param l1 有序链表1
+     * @param l2 有序链表2
+     * @return 返回链表
+     */
+    public ListNode mergeTwoSortedList(ListNode l1, ListNode l2) {
+        ListNode dummyHead = new ListNode(0);
+        ListNode cur = dummyHead;
+
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                cur.next = l1;
+                l1 = l1.next;
+            }
+            else {
+                cur.next = l2;
+                l2 = l2.next;
+            }
+            cur = cur.next;
+        }
+        cur.next = (l1 != null) ? l1 : l2;
+
+        return dummyHead.next;
+    }
+
+    public int listLength(ListNode head) {
+        int length = 0;
+        while (head != null) {
+            ++length;
+            head = head.next;
+        }
+        return length;
+    }
 }
