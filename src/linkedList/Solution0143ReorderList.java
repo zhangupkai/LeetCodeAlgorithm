@@ -78,7 +78,7 @@ public class Solution0143ReorderList {
         return pre;
     }
 
-    
+
     public ListNode mergeList(ListNode l1, ListNode l2) {
         ListNode cur1 = l1, cur2 = l2;
         while (cur1 != null && cur2 != null) {
