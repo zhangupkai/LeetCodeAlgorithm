@@ -33,7 +33,7 @@ public class Solution0124BinaryTreeMaximumPathSum {
         int rightMaxPath = Math.max(maxGain(node.right), 0);
         // 最大路径和
         ans = Math.max(ans, leftMaxPath + rightMaxPath + node.val);
-        // 返回最大贡献值
+        // 返回最大贡献值，即较大的一条边
         return Math.max(leftMaxPath, rightMaxPath) + node.val;
     }
 }
