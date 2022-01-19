@@ -28,6 +28,7 @@ package binary;
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  */
+// 关键点在于如果速度 k 吃不完所有香蕉，那么所有小于等于 k 的解都可以被排除。
 public class Solution0875KokoEatingBananas {
     public int minEatingSpeed(int[] piles, int h) {
         // 解空间为 [1, max(piles)]
