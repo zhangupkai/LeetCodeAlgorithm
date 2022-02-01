@@ -73,7 +73,7 @@ public class Solution0475Heaters {
                 right = mid - 1;
             }
         }
-        return left - 1;
+        return right;
     }
 
     public static void main(String[] args) {
